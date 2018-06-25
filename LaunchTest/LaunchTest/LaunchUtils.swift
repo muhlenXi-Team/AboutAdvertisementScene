@@ -1,9 +1,16 @@
-# AboutLaunch
+//
+//  LaunchUtils.swift
+//  LaunchTest
+//
+//  Created by muhlenXi on 2018/6/25.
+//  Copyright © 2018年 muhlenXi. All rights reserved.
+//
 
-#### 如何获取 App 启动页的 Launch Image name？
+import Foundation
+import UIKit
 
-```swift
-static func getLauchImageName() -> String? {
+class LaunchUtils {
+    static func getLauchImageName() -> String? {
         if let infoDictionary = Bundle.main.infoDictionary, let launchImages = infoDictionary["UILaunchImages"] as? [[String: Any]] {
             let imageSizeValue = "{\(Int(UIScreen.main.bounds.size.width)), \(Int(UIScreen.main.bounds.size.height))}"
             let orientationValue = "Portrait"
@@ -18,6 +25,5 @@ static func getLauchImageName() -> String? {
             }
         }
         return nil
+    }
 }
-```
-
