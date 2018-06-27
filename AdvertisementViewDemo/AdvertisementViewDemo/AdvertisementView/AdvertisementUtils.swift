@@ -1,5 +1,5 @@
 //
-//  LaunchUtils.swift
+//  AdvertisementUtils.swift
 //  LaunchTest
 //
 //  Created by muhlenXi on 2018/6/25.
@@ -9,7 +9,10 @@
 import Foundation
 import UIKit
 
-class LaunchUtils {
+
+class AdvertisementUtils {
+    typealias CompletionHandler = (UIImage?) -> Void
+    
     static func getLauchImageName() -> String? {
         if let infoDictionary = Bundle.main.infoDictionary, let launchImages = infoDictionary["UILaunchImages"] as? [[String: Any]] {
             let imageSizeValue = "{\(Int(UIScreen.main.bounds.size.width)), \(Int(UIScreen.main.bounds.size.height))}"
@@ -25,5 +28,18 @@ class LaunchUtils {
             }
         }
         return nil
+    }
+    
+    static func loadAndStoreImageBy(imageUrlString: String, completionHandler: @escaping CompletionHandler) {
+        DispatchQueue.global().async {
+            if let imageUrl = URL(string: imageUrlString) {
+                if let imageData = try? Data(contentsOf: imageUrl) {
+                    let image = UIImage(data: imageData)
+                    DispatchQueue.main.async {
+                        completionHandler(image)
+                    }
+                }
+            }
+        }
     }
 }

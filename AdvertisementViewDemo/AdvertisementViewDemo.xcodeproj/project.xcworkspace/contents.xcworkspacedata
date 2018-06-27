@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:LaunchTest.xcodeproj">
+      location = "self:/Users/muhlenXi/Mine/AboutLaunch/LaunchTest/AdvertisementViewDemo.xcodeproj">
    </FileRef>
 </Workspace>

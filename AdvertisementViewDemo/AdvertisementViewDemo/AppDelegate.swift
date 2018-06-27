@@ -22,6 +22,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.rootViewController = ViewController()
         window?.makeKeyAndVisible()
         
+        let av = AdvertisementView(frame: UIScreen.main.bounds)
+        av.dismissDelaySeconds = 5
+        av.jumpDelaySeconds = 5
+        av.imageUrlString = "https://testfxchatimage.fx110.com/Images/FXChatStart/Ios/3.png"
+        av.show()
+        
         return true
     }
 
