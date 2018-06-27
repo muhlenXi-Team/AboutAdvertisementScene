@@ -1,4 +1,6 @@
-# AboutLaunch
+# About Advertisement Scene
+
+一个简单的启动广告页面 demo
 
 #### 如何获取 App 启动页的 Launch Image name？
 
